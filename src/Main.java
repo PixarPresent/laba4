@@ -18,7 +18,6 @@ public class Main {
         FairyPerson hat = new FairyPerson("Шляпа", 20, true);
         hat.addSuperAbility("танцевать Жигу-Дрыгу");
 
-
         Accessory glass = new Accessory("Очки");
         Crock cup = new Crock("Чашка");
         quin.toFeel(Feeling.Serious);
@@ -32,18 +31,20 @@ public class Main {
         // ПРОВЕРЯЕМОЕ ИСКЛЮЧЕНИЕ
         try {
             hat.toEat(cup);
-        } catch (EatItemException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-        alisa.toFeel(Feeling.Unusual);
+
 
         // НЕПРОВЕРЯЕМОЕ ИСКЛЮЧЕНИЕ
         try {
             alisa.getSuperAbility(0);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
+
+        alisa.toFeel(Feeling.Unusual);
 
 
 
@@ -70,9 +71,7 @@ public class Main {
         king.sayPhrase("Вызвать свидетельницу");
         UsualPerson cock = new UsualPerson("Кухарка", 50, false);
         king.interact(cock, "допрос");
-
     }
 }
 
 
-//

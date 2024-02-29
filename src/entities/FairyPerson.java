@@ -33,6 +33,9 @@ public class  FairyPerson extends Entity {
 
 
     public String getSuperAbility(int number) {
+        if (number <= 0) {
+            throw new WrongSuperAbilityException("У ПЕРСОНАЖА НЕТ СПОСОБНОСТИ С ТАКИМ НОМЕРОМ!\n");
+        }
         return this.superAbility.get(number);
     }
 
